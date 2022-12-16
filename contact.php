@@ -20,7 +20,7 @@
                     fclose($myfile); */
 
                     $dir = "messages";
-                    $tedad = sizeof(scandir($dir)) - 1;
+                    $tedad = sizeof(scandir($dir)) + 1;
                     
                     $new_file = fopen("messages/$tedad.txt", "w");
                     fwrite($new_file, "name: ");
