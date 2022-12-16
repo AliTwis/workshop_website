@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="fa-IR" dir="rtl">
+    <head>
+        <meta charset="utf-8"> 
+        <link rel="stylesheet" href="styles4.css">
+        <title>contact</title>
+        <script>
+            function validation(){
+                document.getElementById("accept").style.display = "block";
+                document.getElementById("reject").style.display = "block";
+                document.getElementById("first_part").style.display = "none";
+                document.getElementById("accept").style.display = "block";
+                document.getElementById("reject").style.display = "block";
+                document.getElementById("hidden-text").style.display = "block";
+                document.getElementById("hidden-text").innerHTML = "اسم:" + document.forms["contact-form"]["name"].value + "\n" +
+                                                                            "ایمیل:" + document.forms["contact-form"]["email"].value + "\n" +
+                                                                            "پیام:" + document.forms["contact-form"]["matn"].value; 
+
+                if (document.getElementById("accept").style.backgroundColor == "green"){ 
+                    return true;
+                }
+                if (document.getElementById("reject").style.backgroundColor == "red"){
+                    location.replace("contact2.html");
+                    return false;
+                }
+                return false;
+            }
+
+            function green(){
+                document.getElementById("accept").style.backgroundColor = "green";
+            }
+
+            function red(){
+                document.getElementById("reject").style.backgroundColor = "red";
+            }
+        </script>
+    </head>
+    <body style="background-image: url('pics/background2.jfif');background-repeat:no-repeat;background-size: cover;">
+        <ul>
+            <li><a href="introduction.html" >معرفی</a> </li>
+            <li><a href="skills.html">توانمندیها</a> </li>
+            <li><a href="achievements.html">دستاوردها</a> </li>
+            <li><a href="contact.html">تماس با من</a> </li>
+        </ul>
+        <div id="page-container">
+            <div id="content">
+                <center><pre id="hidden-text" style="display:none;font-family: Arial, Helvetica, sans-serif;font-size: 200%;"></pre>
+                <form action="contact.php" method="post" id="contact-form" onsubmit="return validation()">
+                    <div id="first_part">
+                        <label for="name" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">نام</label>
+                        <input type="text" id="name" name="name" >  
+                        <br>                
+                        <label for="email" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">ایمیل</label>
+                        <input type="text" id="email" name="email" >     
+                        <br>           
+                        <label for="matn" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">پیامت رو اینجا وارد کن</label>
+                        <input type="text" id="matn" name="matn" >
+                        <br>
+                        <input type="submit" name="action" value="Submit" onclick="validation()" style="background-color: black; color:white;">
+                    </div>
+                    <input type="submit" name="action" value="بله" style="display: none;
+                    background-color: black;color:white; margin:3%;" id="accept" onclick="green()">
+
+                    <input type="submit" name="action" value="خیر" style="display:none; 
+                    background-color: black;color:white; margin:3%;" id="reject" onclick="red()"> 
+                </form>
+                </center>
+            </div>
+            <div id="footer">
+                <footer>
+                    <address> بهم
+                <a href="mailto:alitwis83@gmail.com" style="color:black; text-align: right;;" > ایمیل </a>
+                بزن!
+                    </address>
+                </footer>
+            </div>
+        </div>
+    </body>
+
+</html>

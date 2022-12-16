@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html dir="rtl" lang="fa-IR">
+    <head>
+	  <meta charset="utf-8">
+        <script>
+            function new_accept(){
+                document.getElementById("contanct-form").onsubmit = false;
+            }
+            function reject(){
+                document.getElementById("contact-form").style.display = "block";
+                        document.getElementById("sure").style.display = "none";
+                        document.getElementById("sure-matn").style.display = "none";
+                        document.getElementById("sure").style.display = "none";
+                        document.getElementById("accept").style.display = "none";
+                        document.getElementById("reject").style.display = "none"
+            }
+            function accept(){
+                document.getElementById("hidden").style.display = "none";
+                document.getElementById("hidden-matn").innerHTML = "پیامت با موفقیت ثبت شد. خیلی ممنون!";
+                document.getElementById("hidden-matn").style.backgroundColor = "rgb(50, 50, 150)";
+                document.getElementById("hidden-matn").style.color = "white";
+                document.getElementById("hidden-matn").style.width = "300px";
+                document.getElementById("hidden-matn").style.heigth = "100px";
+            }
+
+            function change_place(){
+                location.replace("introduction.html");
+            }
+            function is_valid(){
+                var state = 1; 
+                if ((document.forms["contact-form"]["name"].value == "") || 
+                    document.forms["contact-form"]["email"].value == "" ||
+                    document.forms["contact-form"]["matn"].value == ""
+                    ) {
+                        alert("You left some behind!");
+                    }
+                    else{
+                        document.getElementById("contact-form").style.display = "none";
+                        document.getElementById("sure").style.display = "block";
+                        document.getElementById("sure-matn").style.display = "block";
+                        document.getElementById("sure").style.display = "block";
+                        document.getElementById("accept").style.display = "block";
+                        document.getElementById("reject").style.display = "block";
+                        document.getElementById("sure-matn").innerHTML = "اسم:" + document.forms["contact-form"]["name"].value + "\n" +
+                                                                            "ایمیل:" + document.forms["contact-form"]["email"].value + "\n" +
+                                                                            "پیام:" + document.forms["contact-form"]["matn"].value; 
+                    }
+                    state = 0;
+                    return false;
+            
+        }
+        </script> 
+        <link rel="stylesheet" href="styles4.css">
+    </head>
+<body style="background-image: url('pics/background2.jfif');
+background-repeat:no-repeat;background-size: cover;" >
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="styles1.css">
+        <ul>
+            <li><a href="introduction.html" >معرفی</a> </li>
+            <li><a href="skills.html">توانمندیها</a> </li>
+            <li><a href="achievements.html">دستاوردها</a> </li>
+            <li><a href="contact.html">تماس با من</a> </li>
+        </ul>
+        <div id="page-container">
+            <div id="content">
+                <center>
+                    <form action="" name="contact-form"  id="contact-form" method="post" onsubmit="return is_valid()">
+                        <label for="name" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">نام</label>
+                        <input type="text" id="name" name="name" >  
+                        <br>                
+                        <label for="email" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">ایمیل</label>
+                        <input type="text" id="email" name="email" >     
+                        <br>           
+                        <label for="matn" style=" font-size: 200%; font-family: Arial, Helvetica, sans-serif;">پیامت رو اینجا وارد کن</label>
+                        <input type="text" id="matn" name="matn" >
+                        <br>
+                        <!--<button onclick="is_valid()" id="button">Submit</button> -->
+                        <input type="submit" id="button"  style="background-color:black; color:white; margin:3%;">
+                        <br>
+                    </form>
+                    <div id="hidden">
+                        <p id="sure" style="display: none;">
+                            همه چی درسته؟
+                        </p>
+                        <pre id="sure-matn" style="display: none;"></pre>
+                        <br>
+                        <button id="accept" onclick="accept()" style="display: none;background-color:black; color:white; margin:3%;">بلی</button>
+                        <button id="reject" onclick="reject()" style="display: none;background-color:black; color:white; margin:3%;">خیر</button>
+                    </div>
+                    <p id="hidden-matn"></p>
+                </center>
+            </div>
+            <div id="footer">
+                <footer>
+                    <address> بهم
+                <a href="mailto:alitwis83@gmail.com" style="color:black; text-align: right;;" > ایمیل </a>
+                بزن!
+                    </address>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>
